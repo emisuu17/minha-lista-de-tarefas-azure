@@ -1,0 +1,40 @@
+PUBLICAR NO AZURE STATIC WEB APPS
+
+Esta pasta contém a mesma aplicação de lista de tarefas, pronta para hospedagem estática.
+
+PARTE 1 — ENVIAR OS ARQUIVOS AO GITHUB
+1. Entre em https://github.com/ e crie um repositório novo, por exemplo: minha-lista-de-tarefas-azure.
+2. Envie para a raiz do repositório os arquivos desta pasta:
+   index.html
+   style.css
+   app.js
+   staticwebapp.config.json
+3. Confirme que os arquivos aparecem diretamente na página principal do repositório, e não dentro de outra subpasta.
+
+PARTE 2 — CRIAR O SITE NO AZURE
+1. Entre em https://portal.azure.com/
+2. Abra "Create a resource" / "Criar um recurso".
+3. Pesquise por "Static Web Apps" e selecione "Create".
+4. Escolha sua assinatura e crie um Resource Group (grupo de recursos).
+5. Dê um nome à aplicação.
+6. Em "Plan type", escolha "Free".
+7. Em "Deployment details", selecione GitHub e autorize o acesso ao repositório.
+8. Escolha a organização, o repositório e a branch (normalmente main).
+9. Em "Build Details", selecione "Custom" se for solicitado.
+10. Preencha:
+    App location: /
+    Api location: deixe vazio
+    Output location: deixe vazio
+11. Clique em "Review + create" e depois em "Create".
+12. O Azure criará uma configuração de GitHub Actions. Aguarde a execução terminar com sucesso na aba Actions do GitHub.
+13. Abra o recurso Static Web App no portal Azure. O campo "URL" mostrará o endereço público do site.
+
+IMPORTANTE SOBRE PAGAMENTO
+- O Azure Static Web Apps possui um plano Free para sites estáticos.
+- Porém, criar uma conta/assinatura Azure pode exigir verificação de identidade e/ou método de pagamento, conforme país, tipo de conta e elegibilidade. O plano Free do serviço não garante que o cadastro da conta Azure dispense cartão.
+- Se você for estudante, verifique se sua instituição oferece Azure for Students. A elegibilidade e as condições devem ser conferidas no site oficial.
+- Não selecione o plano Standard para este projeto simples.
+
+OBSERVAÇÕES
+- O deploy é feito a partir do GitHub. Cada novo envio para a branch configurada pode iniciar uma nova publicação.
+- As tarefas ficam salvas no localStorage do navegador. Cada pessoa verá as tarefas salvas no próprio navegador; elas não são compartilhadas entre colegas.
